@@ -14,22 +14,13 @@ Both return array of JSON beer objects
 
 Returns array of JSON objects with following schema.
 
-Beer schema
-
-index : int (what number on the board)
-
-brewery : str
-
-name : str 
-
-type : str (ipa, stout, etc. not all will have)
-
-growler_price : str
-
-pint_price : str
-
-abv : str
-
+index : int (what number on the board) <br />
+brewery : str<br />
+name : str <br />
+type : str (ipa, stout, etc. not all will have)<br />
+growler_price : str<br />
+pint_price : str<br />
+abv : str<br />
 location : str (ballard or central)
 
 ## Sample beer object
