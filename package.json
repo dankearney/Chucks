@@ -1,27 +1,32 @@
 {
   "name": "ChucksMobile",
-  "description": "A package using naive versioning",
-  "author": "A confused individual <iam@confused.com>",
-  "dependencies": {
-    "express": ">= 1.2.0",
-    "request" : ">= 0.0.0",
-    "cheerio" : ">= 0.0.0",
-    "futures" : ">= 0.0.0"
-  },
-  "engine": "node 0.4.1",
-  "version": "0.0.0",
-  "main": "app.js",
-  "devDependencies": {},
+  "version": "0.0.1",
+  "description": "App for Chucks Hop Shop",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "~3.4.x",
+    "futures" : ">0.0.0",
+    "request" : ">0.0.0",
+    "cheerio" : ">0.0.0"
+  },
+  "engines": {
+    "node": "0.10.x"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dankearney/Chucks.git"
+    "url": "https://github.com/dankearney/chucks"
   },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dankearney/Chucks/issues"
-  },
-  "homepage": "https://github.com/dankearney/Chucks"
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "Mark Pundsack",
+  "contributors": [
+    "Dan Kearney <dankearney>"
+  ],
+  "license": "MIT"
 }

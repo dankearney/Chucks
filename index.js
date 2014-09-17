@@ -1,8 +1,12 @@
 var express = require('express');
 var request = require('request');
 var cheerio = require('cheerio');
-var Futures = require('futures');
+var Futures = require('Futures');
 var app     = express();
+
+app.set('port', (process.env.PORT || 5000))
+app.use(express.static(__dirname + '/public'))
+
 
 
 function getBeerEntry(beer, location) {
@@ -94,3 +98,4 @@ app.get('/beers', function(req, resp) {
 app.listen('3000')
 console.log('Listening on port 3000');
 module.exports = app;
+
