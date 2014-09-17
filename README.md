@@ -5,6 +5,7 @@ A service that returns a JSON object containing all beers being served by Chuck'
 ## Requests
 
 get /
+
 get /beers
 
 Both return array of JSON beer objects
@@ -16,12 +17,19 @@ Returns array of JSON objects with following schema.
 Beer schema
 
 index : int (what number on the board)
+
 brewery : str
+
 name : str 
+
 type : str (ipa, stout, etc. not all will have)
+
 growler_price : str
+
 pint_price : str
+
 abv : str
+
 location : str (ballard or central)
 
 ## Sample beer object
