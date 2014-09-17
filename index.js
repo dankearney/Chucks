@@ -60,8 +60,8 @@ function scrapeLocation(html, location) {
 }
 
 
-
-app.get('/beers', function(req, resp) {
+var route = ['/','/beers'];
+app.get(route, function(req, resp) {
 
 	var sequence = Futures.sequence();
 
