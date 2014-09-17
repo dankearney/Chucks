@@ -1,36 +1,29 @@
-# node-js-getting-started
+# Chucks Hop Shop mobile app backed
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+A service that returns a JSON object containing all beers being served by Chuck's in its two Seattle locations, Ballard and Central District.
 
-This application support the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+## Requests
 
-## Running Locally
+get /
+get /beers
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+Both return array of JSON beer objects
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
+## Response
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Returns array of JSON objects with following schema.
 
-## Deploying to Heroku
+Beer schema
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
+index : int (what number on the board)
+brewery : str
+name : str 
+type : str (ipa, stout, etc. not all will have)
+growler_price : str
+pint_price : str
+abv : str
+location : str (ballard or central)
 
-## Documentation
+## Sample beer object
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+{"index":12,"brewery":"OskarBlues","name":"OldChubScotchAle","type":"","growler_price":"$12.0","pint_price":"$4.0","abv":"8.0","location":"ballard"}
