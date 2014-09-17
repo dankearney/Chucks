@@ -1,7 +1,7 @@
 var express = require('express');
 var request = require('request');
 var cheerio = require('cheerio');
-var Futures = require('Futures');
+var Futures = require('futures');
 var app     = express();
 
 
