@@ -4,9 +4,8 @@ var cheerio = require('cheerio');
 var Futures = require('futures');
 var app     = express();
 
-app.set('port', (process.env.PORT || 5000))
+app.set('port', (process.env.PORT || 3000))
 app.use(express.static(__dirname + '/public'))
-
 
 
 function getBeerEntry(beer, location) {
@@ -92,10 +91,9 @@ app.get('/beers', function(req, resp) {
 
 });
 
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+})
 
-
-
-app.listen('3000')
-console.log('Listening on port 3000');
 module.exports = app;
 
