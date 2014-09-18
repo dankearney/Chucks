@@ -18,9 +18,8 @@ function getBeerEntry(beer, location) {
 	if (!index) {
 		return null;
 	}
-	var brewery = lines[2].replace(/\W/g, '');
-	var name = lines[3].replace(/\W/g, '');
-	// the above actually kills regular spaces - try /[^a-zA-Z0-9\s]/ 
+	var brewery = lines[2].replace(/[^a-zA-Z0-9\s]/, '');
+	var name = lines[3].replace(/[^a-zA-Z0-9\s]/, '');
 	var type = beer.attr('class').split(" ")[1];
 	var growler_price = beer.children('.beer_meta_xlarge').text();
 	var pint_price = beer.children('.beer_meta_small').text();
