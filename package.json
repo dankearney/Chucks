@@ -8,9 +8,9 @@
   },
   "dependencies": {
     "express": "~3.4.x",
-    "futures" : ">0.0.0",
-    "request" : ">0.0.0",
-    "cheerio" : ">0.0.0"
+    "futures": ">0.0.0",
+    "request": ">0.0.0",
+    "cheerio": ">0.0.0"
   },
   "engines": {
     "node": "0.10.x"
@@ -28,5 +28,10 @@
   "contributors": [
     "Dan Kearney <dankearney>"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dankearney/chucks/issues"
+  },
+  "homepage": "https://github.com/dankearney/chucks",
+  "devDependencies": {}
 }
