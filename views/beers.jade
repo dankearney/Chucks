@@ -1,23 +1,16 @@
 extends layout
 
 block content
-  div(class="table-responsive")
-      table.table
-        thead
+    table.table-full-width
+      tbody
+        each beer in beers
           tr
-            th(class="span1") Index
-            |         
-            th(class="span1") Beer
-        tbody
-          each beer in beers
-            tr
-              td= beer.index
+            td=beer.index
+            td
               if beer.type == 'ipa' 
-                td
-                  b= beer.name
+                b= beer.name
               else if beer.type == 'cider'
-                td 
-                  b
-                    em= beer.name
+                b
+                  em= beer.name
               else
-                td= beer.name
+                span= beer.name
