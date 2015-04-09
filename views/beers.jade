@@ -5,30 +5,14 @@ block content
       table.table.table-hover
         thead
           tr
-            th Firstname
+            th Index
             |         
-            th Lastname
+            th Beer
             |         
-            th Email
-        |     
+            th Type
         tbody
-          tr
-            td John
-            |         
-            td Doe
-            |         
-            td john@example.com
-          |       
-          tr
-            td Mary
-            |         
-            td Moe
-            |         
-            td mary@example.com
-          |       
-          tr
-            td July
-            |         
-            td Dooley
-            |         
-            td july@example.com
+          each beer in beers
+            tr
+              td= beer.index
+              td= beer.name
+              td= beer.type
