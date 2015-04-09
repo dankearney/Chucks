@@ -8,11 +8,16 @@ block content
             th Index
             |         
             th Beer
-            |         
-            th Type
         tbody
           each beer in beers
             tr
               td= beer.index
-              td= beer.name
-              td= beer.type
+              if beer.type == 'ipa' 
+                td
+                  b= beer.name
+              else if beer.type == 'cider'
+                td 
+                  b
+                    em= beer.name
+              else
+                td= beer.name

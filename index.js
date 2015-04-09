@@ -13,9 +13,15 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.get('/home', function(req, resp){
-	models.getBeers(function(beers) {
-          resp.render('beers', {"beers" : beers});
+app.get('/', function(req, resp){
+	models.getBeers('cd', function(beers) {
+          resp.render('beers', {"beers" : beers, 'location' : 'cd'});
+	});
+})
+
+app.get('/ballard', function(req, resp){
+	models.getBeers('ballard', function(beers) {
+          resp.render('beers', {"beers" : beers, 'location' : 'ballard'});
 	});
 })
 

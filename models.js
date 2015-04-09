@@ -1,8 +1,7 @@
-var Futures = require('futures');
 var request = require('request');
 var cheerio = require('cheerio');
 
-function getBeerEntry(beer, location) {
+function getBeerEntry(beer) {
 	lines = beer.toString().split("\n");
 	var index = lines[1];
 	if (index) {
@@ -18,10 +17,10 @@ function getBeerEntry(beer, location) {
 	var growler_price = beer.children('.beer_meta_xlarge').text();
 	var pint_price = beer.children('.beer_meta_small').text();
 	var abv = beer.children('.beer_meta_big').text();
-	return makeBeerObject(index, brewery, name, type, growler_price, pint_price, abv, location);
+	return makeBeerObject(index, brewery, name, type, growler_price, pint_price, abv);
 }
 
-function makeBeerObject(index, brewery, name, type, growler_price, pint_price, abv, location) {
+function makeBeerObject(index, brewery, name, type, growler_price, pint_price, abv) {
     return {"index" : index, 
     		"brewery" : brewery, 
     		"name" : name, 
@@ -29,14 +28,14 @@ function makeBeerObject(index, brewery, name, type, growler_price, pint_price, a
     		"growler_price" : growler_price, 
     		"pint_price" : pint_price,
     		"abv" : abv,
-    		"location" : location};
+    };
 }
 
 function isHeader(beer) {
 	return beer.attr('class').indexOf('header') >= 0;
 }
 
-function scrapeLocation(html, location) {
+function scrape(html, location) {
 	var $ = cheerio.load(html);
 	var beers = $(".beer_even, .beer_odd");
 	var out = [];
@@ -44,7 +43,7 @@ function scrapeLocation(html, location) {
 	beers.each(function(i, elem) {
 		beer = $(this);
 		if (!isHeader(beer)) {
-			entry = getBeerEntry(beer, location);
+			entry = getBeerEntry(beer);
 			if (entry) {
 				out.push(entry);
 			}
@@ -53,31 +52,20 @@ function scrapeLocation(html, location) {
 	return out;
 }
 
-function getBeers (callback) {
-	var sequence = Futures.sequence();
-	sequence
-	.then(function(next, res) {
-	    var ballard_url = 'http://www.chucks85th.com';
-		request(ballard_url, function (err, response, html) {
-			if (!err) {
-			    res = scrapeLocation(html, "ballard");
-			    next(res);
-			} else {
-				console.log(err);
-			}
-	    });		
-	})
-	.then(function(next, res) {
-	    var central_url = 'http://cd.chucks85th.com';
-		request(central_url, function (err, response, html) {
-			if (!err) {
-			    var out = scrapeLocation(html, "central");
-			    callback(JSON.stringify(out.concat(res)));
-			} else {
-				console.log(err);
-			}
-	    });
-	});
+function getBeers (location, callback) {
+
+	if (location == 'cd') {
+		url = 'http://cd.chucks85th.com';
+	} else {
+		url = 'http://www.chucks85th.com';
+	} 
+	request(url, function (err, response, html) {
+		if (!err) {
+		    callback(scrape(html));
+		} else {
+			console.log(err);
+		}
+    });		
 }
 
 exports.getBeers = getBeers;
