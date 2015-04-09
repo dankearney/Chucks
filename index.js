@@ -15,7 +15,7 @@ app.configure(function(){
 
 app.get('/home', function(req, resp){
 	models.getBeers(function(beers) {
-		resp.render('beers');
+          resp.render('beers', {"beers" : beers});
 	});
 })
 
@@ -24,4 +24,3 @@ app.listen(app.get('port'), function() {
 })
 
 module.exports = app;
-
