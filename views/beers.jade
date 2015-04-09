@@ -1,13 +1,13 @@
 extends layout
 
 block content
-  .container
+  div
       table.table.table-hover
         thead
           tr
-            th Index
+            th(class="span1") Index
             |         
-            th Beer
+            th(class="span1") Beer
         tbody
           each beer in beers
             tr
