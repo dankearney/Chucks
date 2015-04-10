@@ -8,9 +8,9 @@ block content
             td=beer.index
             td
               if beer.type == 'ipa' 
-                b= beer.name
+                b #{beer.brewery} #{beer.name}
               else if beer.type == 'cider'
                 b
-                  em= beer.name
+                  em #{beer.brewery} #{beer.name}
               else
-                span= beer.name
+                span #{beer.brewery} #{beer.name}
