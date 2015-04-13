@@ -5,6 +5,10 @@ block content
       tbody
         each beer in beers
           tr
+            td
+              .squaredFour
+                input(type='checkbox', value='None', name='check', id='#{beer.name}')
+                label(for='#{beer.name}')
             td=beer.index
             td
               if beer.type == 'ipa' 
